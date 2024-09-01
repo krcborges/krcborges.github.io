@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta de Casamento</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center; /* Centraliza o texto */
+        }
+        #nao {
+            cursor: pointer;
+        }
+        #resultado {
+            display: none;
+            margin-top: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Quer casar comigo?</h1>
+    <div>
+        <button id="sim">Sim</button>
+        <button id="nao" onmouseover="moverNao()">Não</button>
+    </div>
+
+    <div id="resultado">
+        <p>Agora você é minha esposa ❤️</p>
+        <p>Karla 2024</p>
+    </div>
+
+    <script>
+        function moverNao() {
+            const naoButton = document.getElementById('nao');
+            const buttonWidth = naoButton.offsetWidth;
+            const buttonHeight = naoButton.offsetHeight;
+
+            // Calcula uma posição aleatória para o botão "Não"
+            const randomX = Math.floor(Math.random() * (window.innerWidth - buttonWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - buttonHeight));
+
+            // Define a nova posição do botão "Não"
+            naoButton.style.position = 'absolute';
+            naoButton.style.left = randomX + 'px';
+            naoButton.style.top = randomY + 'px';
+        }
+
+        document.getElementById('sim').onclick = function() {
+            document.getElementById('resultado').style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
